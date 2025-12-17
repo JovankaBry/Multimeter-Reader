@@ -1,4 +1,6 @@
 import time
+import sys
+import select
 
 def query (ser, cmd, wait=1):
     ser.write((cmd + "\r\n").encode("ascii"))
@@ -18,3 +20,8 @@ def voltage(ser):
     volt = float(query(ser,"READ?"))
     print("Voltage(V): ", volt)
     return volt
+    
+def get_key():
+    if select.select([sys.stdin], [], [], 0)[0]:
+        return sys.stdin.read(1)
+    return None
