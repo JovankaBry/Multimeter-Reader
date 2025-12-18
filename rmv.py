@@ -5,5 +5,3 @@ for i in range (2, 10):
     if os.path.exists(filename):
         os.remove(filename)
         print(f"Deleted {filename}")
-    else:
-        print("..")
