@@ -8,6 +8,6 @@ def get_filename():
             return file_name
         i += 1
 
-def file(res, file_name):
+def file(res, unit, file_name):
     with open(file_name, "a") as f:
-        f.write(f"{res}\n")
+        f.write(f"{res} {unit}\n")

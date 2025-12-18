@@ -9,12 +9,12 @@ def resistance(ser):
     ser.write(b"CONF:RES\r\n")
     time.sleep(0.2)
     res = float(query(ser,"READ?"))
-    print("Resistance (Ohm): ", res)
+    print("Resistance: ", res ,'\u03A9')
     return res
 
 def voltage(ser):
     ser.write(b"CONF:VOLT:DC\r\n")
     time.sleep(0.2)
     volt = float(query(ser,"READ?"))
-    print("Voltage(V): ", volt)
+    print("Voltage: ", volt , 'V')
     return volt
