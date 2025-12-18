@@ -1,5 +1,5 @@
 import os
-from datetime import datetime
+from .func import timestamp
 
 def get_filename():
     i = 1
@@ -10,7 +10,7 @@ def get_filename():
         i += 1
 
 def file(res, unit, file_name):
-    timestamp = datetime.now().strftime("%d.%m.%y %H:%M:%S")
+    date = timestamp()
     with open(file_name, "a") as f:
         value_str = f"{res:.6f}".replace(".", ",")
-        f.write(f"{value_str};{unit};{timestamp}\n")
+        f.write(f"{value_str};{unit};{date}\n")

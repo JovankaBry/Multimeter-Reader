@@ -1,4 +1,5 @@
 import time
+from datetime import datetime
 
 def query (ser, cmd, wait=1):
     ser.write((cmd + "\r\n").encode("ascii"))
@@ -25,3 +26,6 @@ def current(ser):
     cur = float(query(ser, "READ?"))
     print("Current: ", cur, 'A')
     return cur
+
+def timestamp():
+    return datetime.now().strftime("%d.%m.%y %H:%M:%S")

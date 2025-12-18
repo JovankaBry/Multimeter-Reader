@@ -1,4 +1,7 @@
-from include.imports import *
+from include.func import query, resistance, voltage, current, timestamp
+from include.serials import open_serial
+from include.csv import get_filename, file
+import time
 
 ser = open_serial()   # Opening serial from serials.py
 
