@@ -4,7 +4,11 @@ ser = open_serial()   # Opening serial from serials.py
 
 print("Identification :", query(ser, "*IDN?"))
 
-mode = input("v / r: ").lower()
+while True:
+    mode = input("v / r / a: ").lower()
+    if mode in ("v", "r", "a"):
+        break
+
 print("\nSTRG + C to stop measuring!")
 
 ser.write(b"*CLS\r\n")
@@ -22,9 +26,13 @@ try:
             res = resistance(ser)
             file(res, '\u03A9', file_name)
             time.sleep(2)
-        else:
+        elif (mode == 'v'):
             volt = voltage(ser)
             file(volt, 'v', file_name)
+            time.sleep(2)
+        else:
+            cur = current(ser)
+            file(cur, 'A', file_name)
             time.sleep(2)
     
 except KeyboardInterrupt:

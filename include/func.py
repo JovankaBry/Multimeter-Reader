@@ -18,3 +18,10 @@ def voltage(ser):
     volt = float(query(ser,"READ?"))
     print("Voltage: ", volt , 'V')
     return volt
+
+def current(ser):
+    ser.write(b"CONF:CURR:DC\r\n")
+    time.sleep(0.2)
+    cur = float(query(ser, "READ?"))
+    print("Current: ", cur, 'A')
+    return cur
