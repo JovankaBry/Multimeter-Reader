@@ -24,11 +24,11 @@ try:
     while True:
         if (mode == 'r'):
             res = resistance(ser)
-            file(res, '\u03A9', file_name)
+            file(res, 'Ohm', file_name)
             time.sleep(2)
         elif (mode == 'v'):
             volt = voltage(ser)
-            file(volt, 'v', file_name)
+            file(volt, 'V', file_name)
             time.sleep(2)
         else:
             cur = current(ser)
